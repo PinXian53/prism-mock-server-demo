@@ -1,0 +1,59 @@
+openapi: 3.1.0
+info:
+  title: Demo Openapi
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /api/v1/user/add:
+    post:
+      summary: Add a user
+      operationId: post-api-v1-user-add
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAddRequestDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAddResponseDTO'
+              example:
+                code: "0"
+                msg: "success"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAddResponseDTO'
+              example:
+                code: "1"
+                msg: "invalid parameter"
+      tags:
+        - user
+components:
+  schemas:
+    UserAddRequestDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        gender:
+          type: string
+        age:
+          type: int
+      required:
+        - name
+    UserAddResponseDTO:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+tags:
+  - name: user

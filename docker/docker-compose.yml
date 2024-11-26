@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  prism:
+    image: stoplight/prism:5.12.1
+    init: true
+    ports:
+      - "3000:4010"
+    command: mock -h 0.0.0.0 "/tmp/demo.yml"
+    volumes:
+      - ./demo.yml:/tmp/demo.yml
