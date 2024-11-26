@@ -1,4 +1,6 @@
 # stoplight-prism-demo
+> stoplight prism: https://stoplight.io/open-source/prism
+
 只需要在 openapi 寫好 response 的 example<br/>
 就可以用 stoplight prism 將 openapi 文件變成 mock server
 
